@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ricemarch.cms.pms.mapper.TenantMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.ricemarch.cms.pms.entity.Tenant">
+        <id column="id" property="id" />
+        <result column="tenant_name" property="tenantName" />
+        <result column="principal_name" property="principalName" />
+        <result column="principal_mobile_phone" property="principalMobilePhone" />
+        <result column="principal_identity_card" property="principalIdentityCard" />
+        <result column="telephone" property="telephone" />
+        <result column="image_url" property="imageUrl" />
+        <result column="address" property="address" />
+        <result column="description" property="description" />
+        <result column="status_type" property="statusType" />
+        <result column="begin_date" property="beginDate" />
+        <result column="end_date" property="endDate" />
+        <result column="create_user" property="createUser" />
+        <result column="update_user" property="updateUser" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+<!--    <sql id="Base_Column_List">-->
+<!--        id, tenant_name, principal_name, principal_mobile_phone, principal_identity_card, telephone, image_url, address, description, status_type, begin_date, end_date, create_user, update_user, create_time, update_time-->
+<!--    </sql>-->
+
+</mapper>

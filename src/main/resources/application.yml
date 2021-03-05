@@ -1,0 +1,12 @@
+# ricemarch dfmc cms person management module
+server:
+  port: 8001
+
+# datatsource
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: NEFU
+    url: jdbc:mysql://test.ricemarch.com:3306/cms_user?serverTimeZone=Asia/Shanghai
+

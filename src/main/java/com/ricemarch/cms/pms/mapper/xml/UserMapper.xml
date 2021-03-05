@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ricemarch.cms.pms.mapper.UserMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.ricemarch.cms.pms.entity.User">
+        <id column="id" property="id" />
+        <result column="open_id" property="openId" />
+        <result column="union_id" property="unionId" />
+        <result column="username" property="username" />
+        <result column="head_image" property="headImage" />
+        <result column="password" property="password" />
+        <result column="state" property="state" />
+        <result column="account_state" property="accountState" />
+        <result column="salary" property="salary" />
+        <result column="gender" property="gender" />
+        <result column="active" property="active" />
+        <result column="age" property="age" />
+        <result column="phone" property="phone" />
+        <result column="idcard_number" property="idcardNumber" />
+        <result column="birthday" property="birthday" />
+        <result column="entry_day" property="entryDay" />
+        <result column="address" property="address" />
+        <result column="user_type" property="userType" />
+        <result column="store_id" property="storeId" />
+        <result column="company_id" property="companyId" />
+        <result column="tenant_id" property="tenantId" />
+        <result column="sys_user_id" property="sysUserId" />
+        <result column="reset_flag" property="resetFlag" />
+        <result column="mark" property="mark" />
+        <result column="is_delete" property="isDelete" />
+        <result column="update_user" property="updateUser" />
+        <result column="create_user" property="createUser" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="user_no" property="userNo" />
+        <result column="position_code" property="positionCode" />
+        <result column="profession_code" property="professionCode" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+<!--    <sql id="Base_Column_List">-->
+<!--        id, open_id, union_id, username, head_image, password, state, account_state, salary, gender, active, age, phone, idcard_number, birthday, entry_day, address, user_type, store_id, company_id, tenant_id, sys_user_id, reset_flag, mark, is_delete, update_user, create_user, create_time, update_time, user_no, position_code, profession_code-->
+<!--    </sql>-->
+
+</mapper>
