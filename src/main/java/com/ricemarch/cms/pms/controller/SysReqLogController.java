@@ -23,9 +23,9 @@ public class SysReqLogController {
         return "hi! cool boy!";
     }
 
-    @PostMapping("/hip")
-    public String hip(@Validated @RequestBody Test test) {
-        return "hi beautiful boy!";
-    }
+//    @PostMapping("/hip")
+//    public String hip(@Validated @RequestBody Test test) {
+//        return "hi beautiful boy!";
+//    }
 }
 

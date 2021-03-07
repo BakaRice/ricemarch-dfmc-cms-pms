@@ -3,18 +3,23 @@ package com.ricemarch.cms.pms.entity;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.io.Serializable;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author ricemarch
  * @since 2021-03-05
  */
 @Data
+@Getter
+@Setter
 @EqualsAndHashCode(callSuper = false)
 public class User implements Serializable {
 
@@ -23,7 +28,7 @@ public class User implements Serializable {
     /**
      * 主键
      */
-      private String id;
+    private String id;
 
     /**
      * 微信小程序openId

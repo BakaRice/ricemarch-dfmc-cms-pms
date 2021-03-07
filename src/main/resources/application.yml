@@ -9,4 +9,7 @@ spring:
     username: root
     password: NEFU
     url: jdbc:mysql://test.ricemarch.com:3306/cms_user?serverTimeZone=Asia/Shanghai
-
+#
+cms:
+  secretKey: R28K42ZEJ8LWRHU5
+  salt: d343e10141f34276
