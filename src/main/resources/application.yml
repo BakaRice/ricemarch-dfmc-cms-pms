@@ -9,7 +9,15 @@ spring:
     username: root
     password: NEFU
     url: jdbc:mysql://test.ricemarch.com:3306/cms_user?serverTimeZone=Asia/Shanghai
+
 #
 cms:
   secretKey: R28K42ZEJ8LWRHU5
   salt: d343e10141f34276
+
+logging:
+  level:
+    root: warn
+    com.ricemarch: debug
+  pattern:
+    console: '%d{yyyy-MMM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{15} - %msg%n'

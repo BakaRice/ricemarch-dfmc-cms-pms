@@ -73,7 +73,7 @@ public class SysReqLogServiceImpl extends ServiceImpl<SysReqLogMapper, SysReqLog
             });
         }
         sysReqLog.setToken(token);
-        sysReqLog.setRequrl(url);
+        sysReqLog.setRequri(url);
         sysReqLog.setMethod(method);
         sysReqLog.setReqparams(JSON.toJSONString(arg));
         sysReqLog.setCreatetime(LocalDateTime.now(ZoneId.of("+08:00")));
