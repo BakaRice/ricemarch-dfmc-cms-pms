@@ -1,4 +1,4 @@
-package com.ricemarch.cms.pms.expection;
+package com.ricemarch.cms.pms.common.expection;
 
 import com.ricemarch.cms.pms.common.enums.BizErrorCodeEnum;
 import com.ricemarch.cms.pms.common.facade.BaseResponse;

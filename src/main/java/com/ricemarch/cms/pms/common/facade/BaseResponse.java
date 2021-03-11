@@ -58,6 +58,88 @@ public class BaseResponse<T> implements Serializable {
         this.data = data;
     }
 
+    public static BaseResponse success() {
+        return new BaseResponse();
+    }
+
+    public static BaseResponse success(String message) {
+        return new BaseResponse(BizErrorCodeEnum.SUCCESS, message);
+    }
+
+    public static <T> BaseResponse<T> success(T data) {
+        return new BaseResponse<>(data);
+    }
+
+    public static <T> BaseResponse<T> success(String message, T data) {
+        return new BaseResponse(BizErrorCodeEnum.SUCCESS, message, data);
+    }
+
+    public static BaseResponse operationFailed() {
+        return new BaseResponse(BizErrorCodeEnum.OPERATION_FAILED);
+    }
+
+    public static BaseResponse operationFailed(String message) {
+        return new BaseResponse(BizErrorCodeEnum.OPERATION_FAILED, message);
+    }
+
+    public static <T> BaseResponse<T> operationFailed(T data) {
+        return new BaseResponse(BizErrorCodeEnum.OPERATION_FAILED, BizErrorCodeEnum.OPERATION_FAILED.getDesc(),
+                data);
+    }
+
+    public static <T> BaseResponse<T> operationFailed(String message, T data) {
+        return new BaseResponse(BizErrorCodeEnum.OPERATION_FAILED, message, data);
+    }
+
+    public static BaseResponse systemError() {
+        return new BaseResponse(BizErrorCodeEnum.SYSTEM_ERROR);
+    }
+
+    public static BaseResponse systemError(String message) {
+        return new BaseResponse(BizErrorCodeEnum.SYSTEM_ERROR, message);
+    }
+
+    public static <T> BaseResponse<T> systemError(T data) {
+        return new BaseResponse<>(BizErrorCodeEnum.SYSTEM_ERROR, BizErrorCodeEnum.SYSTEM_ERROR.getDesc(), data);
+    }
+
+    public static <T> BaseResponse<T> systemError(String message, T data) {
+        return new BaseResponse(BizErrorCodeEnum.SYSTEM_ERROR, message, data);
+    }
+
+    public static BaseResponse paramError() {
+        return new BaseResponse(BizErrorCodeEnum.PARAM_ERROR);
+    }
+
+    public static BaseResponse paramError(String message) {
+        return new BaseResponse(BizErrorCodeEnum.PARAM_ERROR, message);
+    }
+
+    public static <T> BaseResponse<T> paramError(T data) {
+        return new BaseResponse(BizErrorCodeEnum.PARAM_ERROR, BizErrorCodeEnum.PARAM_ERROR.getDesc(), data);
+    }
+
+    public static <T> BaseResponse<T> paramError(String message, T data) {
+        return new BaseResponse(BizErrorCodeEnum.PARAM_ERROR, message, data);
+    }
+
+    public static BaseResponse paramIsNull() {
+        return new BaseResponse(BizErrorCodeEnum.PARAM_IS_NULL);
+    }
+
+    public static BaseResponse paramIsNull(String message) {
+        return new BaseResponse(BizErrorCodeEnum.PARAM_IS_NULL, message);
+    }
+
+    public static <T> BaseResponse<T> paramIsNull(T data) {
+        return new BaseResponse(BizErrorCodeEnum.PARAM_IS_NULL, BizErrorCodeEnum.PARAM_IS_NULL.getDesc(), data);
+    }
+
+    public static <T> BaseResponse<T> paramIsNull(String message, T data) {
+        return new BaseResponse(BizErrorCodeEnum.PARAM_IS_NULL, message, data);
+    }
+
+
     public int getCode() {
         return code;
     }

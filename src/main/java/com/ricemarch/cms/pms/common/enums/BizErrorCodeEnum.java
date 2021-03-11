@@ -11,7 +11,7 @@ public enum BizErrorCodeEnum implements BizEnum {
      */
     SUCCESS(10000, "success", "操作成功"),
 
-    URL_REQUEST_ERROR(10001, "url.request.error", "异常接口调用"),
+    REQUEST_ERROR(10001, "url.request.error", "异常接口调用"),
 
     PROCESS_FAIL(10002, "PROCESS_FAIL", "服务器处理失败"),
 
@@ -63,7 +63,7 @@ public enum BizErrorCodeEnum implements BizEnum {
 
     SYSTEM_ERROR(10025, "SYSTEM_ERROR", "系统异常"),
 
-    CALLSERVICCE_ERROR(10026, "CALLSERVICCE_ERROR", "调用服务异常"),
+    CALL_SERVICCE_ERROR(10026, "CALL_SERVICCE_ERROR", "调用服务异常"),
 
     VERSION_ERROR(10027, "VERSION_ERROR", "版本号错误"),
 
