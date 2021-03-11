@@ -1,6 +1,5 @@
-package com.ricemarch.cms.pms.component;
+package com.ricemarch.cms.pms.common.component;
 
-import com.ricemarch.cms.pms.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 

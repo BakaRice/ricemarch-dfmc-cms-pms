@@ -4,8 +4,8 @@ import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.ricemarch.cms.pms.bo.request.BaseRequest;
 
-import com.ricemarch.cms.pms.component.EncryptComponent;
-import com.ricemarch.cms.pms.component.MyToken;
+import com.ricemarch.cms.pms.common.component.EncryptComponent;
+import com.ricemarch.cms.pms.common.component.MyToken;
 import com.ricemarch.cms.pms.entity.SysReqLog;
 import com.ricemarch.cms.pms.entity.User;
 import com.ricemarch.cms.pms.mapper.SysReqLogMapper;
@@ -55,9 +55,13 @@ public class SysReqLogServiceImpl extends ServiceImpl<SysReqLogMapper, SysReqLog
         String method = request.getMethod();
         //TODO store id
         Random random = new Random();
-        BaseRequest arg = (BaseRequest) pjp.getArgs()[0];
-        String userId = Optional.ofNullable(arg.getUserId()).orElse("login");
         SysReqLog sysReqLog = new SysReqLog();
+        if (pjp.getArgs().length != 0) {
+            BaseRequest arg = (BaseRequest) pjp.getArgs()[0];
+            sysReqLog.setReqparams(JSON.toJSONString(arg));
+//            String userId = Optional.ofNullable(arg.getUserId()).orElse("login");
+        }
+
         sysReqLog.setStoreId(random.nextLong());
         String token = request.getHeader(MyToken.AUTHORIZATION);
         if (StringUtils.isNotBlank(token)) {
@@ -75,7 +79,6 @@ public class SysReqLogServiceImpl extends ServiceImpl<SysReqLogMapper, SysReqLog
         sysReqLog.setToken(token);
         sysReqLog.setRequri(url);
         sysReqLog.setMethod(method);
-        sysReqLog.setReqparams(JSON.toJSONString(arg));
         sysReqLog.setCreatetime(LocalDateTime.now(ZoneId.of("+08:00")));
 
         sysReqLog.setResparams(JSON.toJSONString(proceed));

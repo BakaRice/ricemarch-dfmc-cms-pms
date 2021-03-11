@@ -1,7 +1,6 @@
 package com.ricemarch.cms.pms.service.impl;
 
 import com.ricemarch.cms.pms.bo.request.InsertBasicUserReq;
-import com.ricemarch.cms.pms.component.EncryptComponent;
 import com.ricemarch.cms.pms.entity.User;
 import com.ricemarch.cms.pms.mapper.UserMapper;
 import com.ricemarch.cms.pms.service.UserService;

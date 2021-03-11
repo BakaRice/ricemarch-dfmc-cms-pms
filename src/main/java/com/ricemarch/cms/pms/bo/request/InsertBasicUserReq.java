@@ -1,5 +1,6 @@
 package com.ricemarch.cms.pms.bo.request;
 
+import com.ricemarch.cms.pms.dto.UserType;
 import lombok.Data;
 
 import javax.validation.constraints.NotNull;
@@ -33,6 +34,8 @@ public class InsertBasicUserReq extends BaseRequest {
 
     @NotNull(message = "密码不能为空")
     private String password;
+
+    private String userType;
 
     /**
      * 创建人

@@ -2,6 +2,7 @@ package com.ricemarch.cms.pms.aspect;
 
 import com.ricemarch.cms.pms.dto.BaseUser;
 import com.ricemarch.cms.pms.dto.CustomUser;
+import com.ricemarch.cms.pms.entity.User;
 
 import java.util.Optional;
 
@@ -37,5 +38,13 @@ public class UserContextHolder {
         return Optional.ofNullable(getUser())
                 .map(BaseUser::getUsername)
                 .orElse(null);
+    }
+
+    public static String getUserId() {
+        CustomUser customUser = UserContextHolder.getUser();
+        if (null != customUser) {
+            return customUser.getId();
+        }
+        return null;
     }
 }

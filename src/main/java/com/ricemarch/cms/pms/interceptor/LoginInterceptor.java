@@ -2,8 +2,8 @@ package com.ricemarch.cms.pms.interceptor;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.ricemarch.cms.pms.aspect.UserContextHolder;
-import com.ricemarch.cms.pms.component.EncryptComponent;
-import com.ricemarch.cms.pms.component.MyToken;
+import com.ricemarch.cms.pms.common.component.EncryptComponent;
+import com.ricemarch.cms.pms.common.component.MyToken;
 import com.ricemarch.cms.pms.dto.CustomUser;
 import com.ricemarch.cms.pms.entity.User;
 import com.ricemarch.cms.pms.service.UserService;
@@ -11,7 +11,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.servlet.HandlerInterceptor;

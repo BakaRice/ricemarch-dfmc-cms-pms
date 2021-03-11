@@ -1,5 +1,6 @@
 package com.ricemarch.cms.pms.dto;
 
+import com.ricemarch.cms.pms.entity.User;
 import lombok.Data;
 
 /**
@@ -10,5 +11,4 @@ import lombok.Data;
 
 @Data
 public class CustomUser extends BaseUser {
-
 }
