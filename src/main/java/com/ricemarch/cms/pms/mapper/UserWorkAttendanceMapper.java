@@ -1,0 +1,16 @@
+package com.ricemarch.cms.pms.mapper;
+
+import com.ricemarch.cms.pms.entity.UserWorkAttendance;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+
+/**
+ * <p>
+ * 用户工作考勤表 Mapper 接口
+ * </p>
+ *
+ * @author ricemarch
+ * @since 2021-03-16
+ */
+public interface UserWorkAttendanceMapper extends BaseMapper<UserWorkAttendance> {
+
+}

@@ -12,7 +12,11 @@ import com.ricemarch.cms.pms.common.facade.BaseResponse;
 import com.ricemarch.cms.pms.dto.CustomUser;
 import com.ricemarch.cms.pms.dto.UserType;
 import com.ricemarch.cms.pms.entity.User;
+import com.ricemarch.cms.pms.mapper.UserWorkSchedulingMapper;
 import com.ricemarch.cms.pms.service.UserService;
+import com.ricemarch.cms.pms.service.UserWorkAttendanceService;
+import com.ricemarch.cms.pms.service.UserWorkSchedulingService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -29,39 +33,28 @@ import java.util.Optional;
  * @since 2021-03-05
  */
 @RestController
-@RequestMapping("/api/pms/user")
+@RequestMapping("/api/user")
 public class UserController extends BaseController {
 
     @Autowired
     UserService userService;
 
-    /**
-     * 用于创建用户，用户能自主创建账号，但不会有组织id 和 company
-     * <p>
-     * 新加权限的设计
-     * user_type: default,institution 不能创建新用户。 company 才能创建新用户
-     *
-     * @param basicUserReq 用户传输对象
-     */
-    @PostMapping
-    public BaseResponse addUser(@Valid @RequestBody InsertBasicUserReq basicUserReq) {
-        //TODO 默认user type 的设计和调整
-        QueryWrapper<User> qw_phone = new QueryWrapper<User>();
-        qw_phone.eq("phone", basicUserReq.getPhone());
-        if (userService.getOne(qw_phone) != null) {
-            return new BaseResponse(BizErrorCodeEnum.PHONE_NUMBER_HAS_BEEN_USED);
-        }
-        userService.insertBasicUser(basicUserReq);
-        return new BaseResponse();
-    }
+    @Autowired
+    UserWorkAttendanceService attendanceService;
+
+    @Autowired
+    UserWorkSchedulingService schedulingService;
+
+//    /api/user/work/ <- 考勤
 
     /**
      * 用来根据 auth 获取用户信息 通过手机号查找用户信息 并返回
+     * /api/user/info/ <- 信息
      *
-     * @return 用户信息 去除密码等
+     * @return
      */
-    @GetMapping("")
-    public BaseResponse<CustomUser> getUserByPhone() {
+    @GetMapping("/info")
+    public BaseResponse<CustomUser> getUserInfo() {
 //        //TODO 查询权限的设计 user_type: 普通员工只能查自己 institution leader能查自己institution的内容,company账户能查所有
         QueryWrapper<User> qwPhone = new QueryWrapper<User>();
         String phone = Optional.ofNullable(super.getUserFull().getPhone())
@@ -71,6 +64,30 @@ public class UserController extends BaseController {
         CustomUser customUser = new CustomUser();
         BeanUtils.copyProperties(one, customUser);
         return new BaseResponse<>(customUser);
+    }
+
+    @GetMapping("/work")
+    public BaseResponse getUserWorkInfo() {
+        return new BaseResponse();
+    }
+
+    /**
+     * 考勤打卡
+     * 考勤打卡的逻辑上 当前用户在当前日没有上班记录时，则进行打卡上班操作，
+     * 下一次打卡操作即视为下班，下次打卡时间未超过8小时时，则视为早退
+     *
+     * @return
+     */
+    @PostMapping("/work")
+    public BaseResponse addWorkLog() {
+        String userId = super.getUserId();
+        if (!StringUtils.isEmpty(userId)) {
+            //判断排班的类型 获取对应的上班时间 判断是否在合理的考勤时间内
+            int type =  schedulingService.getUserWorkType(userId);
+
+            attendanceService.addWorkLog(userId, type);
+        }
+        return new BaseResponse();
     }
 }
 

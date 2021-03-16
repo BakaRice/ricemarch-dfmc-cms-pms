@@ -1,6 +1,7 @@
 package com.ricemarch.cms.pms.service;
 
 import com.ricemarch.cms.pms.bo.request.InsertBasicUserReq;
+import com.ricemarch.cms.pms.dto.CustomUser;
 import com.ricemarch.cms.pms.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -16,5 +17,6 @@ public interface UserService extends IService<User> {
 
     public void insertBasicUser(InsertBasicUserReq insertBasicUserReq);
 
+    public void UpdateAddressAndPhone(CustomUser user, String userId);
 
 }

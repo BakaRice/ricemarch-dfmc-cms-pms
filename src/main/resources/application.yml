@@ -8,7 +8,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: NEFU
-    url: jdbc:mysql://test.ricemarch.com:3306/cms_user?serverTimeZone=Asia/Shanghai
+    url: jdbc:mysql://test.ricemarch.com:3306/cms_user?serverTimeZone=GMT%2B8
 
 #
 cms:

@@ -63,8 +63,6 @@ public class ExceptionController {
                 ": " + "请求地址参数" + exception.getValue() + "错误";
         HashMap resultMap = new HashMap();
         resultMap.put("message", msg);
-//        return Map.of("message", strBuilder.toString());
-//        return resultMap;
         return new BaseResponse(BizErrorCodeEnum.INVALID_METHOD, msg);
     }
 
@@ -81,8 +79,19 @@ public class ExceptionController {
                 ": " + "登录权限" + exception.getValue() + "错误";
         HashMap resultMap = new HashMap();
         resultMap.put("message", msg);
-//        return Map.of("message", strBuilder.toString());
         return resultMap;
+    }
+
+    /**
+     * 自定义异常的捕获
+     *
+     * @param exception
+     * @return
+     */
+    @ExceptionHandler(PmsServiceException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public BaseResponse handleCustomException(PmsServiceException exception) {
+        return BaseResponse.operationFailed(exception.getErrorMessage());
     }
 
 
@@ -98,4 +107,6 @@ public class ExceptionController {
 //
 //        return Map.of("message", exception.getMessage());
 //    }
+
+
 }

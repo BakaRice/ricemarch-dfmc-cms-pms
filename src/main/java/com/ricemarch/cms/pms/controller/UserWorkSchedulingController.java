@@ -7,15 +7,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * <p>
- * 公司 前端控制器
+ * 排班记录表 前端控制器
  * </p>
  *
  * @author ricemarch
- * @since 2021-03-05
+ * @since 2021-03-16
  */
 @RestController
-@RequestMapping("/api/pms/company")
-public class CompanyController {
+@RequestMapping("/pms/user-work-scheduling")
+public class UserWorkSchedulingController {
 
 }
 
